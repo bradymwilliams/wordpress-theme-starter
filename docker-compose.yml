@@ -1,0 +1,20 @@
+wordpress:
+  image: wordpress:fpm
+  links:
+    - db:mysql
+  volumes:
+    - ./wordpress/wp-content/:/var/www/html/wp-content
+nginx:
+  image: raulr/nginx-wordpress
+  links:
+   - wordpress
+  volumes_from:
+   - wordpress
+  ports:
+   - "8080:80"
+  environment:
+    POST_MAX_SIZE: 128m
+db:
+  image: mariadb
+  environment:
+    MYSQL_ROOT_PASSWORD: example

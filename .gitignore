@@ -1,0 +1,9 @@
+# old wordpress-themes
+wordpress/wp-content/themes/twentyfifteen
+wordpress/wp-content/themes/twentyfourteen
+wordpress/wp-content/themes/twentysixteen
+
+# compiled theme
+wordpress/wp-content/themes/howl 
+
+**/*/node_modules/
