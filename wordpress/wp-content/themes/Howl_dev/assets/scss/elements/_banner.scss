@@ -1,0 +1,247 @@
+header[role="banner"].primary {
+    // position: relative;
+    background-color: $ca_banner_bg;
+    color: $c_white;
+    display: flex;
+    padding: 1rem;
+}
+
+.menu--primary {
+    
+}
+
+.cd-nav {
+    .menu--primary ul {
+        /* mobile first */
+        position: fixed;
+        width: 90%;
+        max-width: 400px;
+        right: 5%;
+        bottom: 20px;
+        border-right: .25em;
+        box-shadow: 0 0 10px rgba($c_orange, .4);
+        background: $c_white;
+        visibility: hidden;
+        padding: 0;
+        margin: 0;
+
+        /* remove overflow:hidden if you want to create a drop-down menu - but then remember to fix/eliminate the list items animation */
+        overflow: hidden;
+
+        z-index: 1;
+
+        /* Force Hardware Acceleration in WebKit */
+        -webkit-backface-visibility: hidden;
+        backface-visibility: hidden;
+
+        transform: scale(0);
+        transform-origin: 100% 100%;
+        transition: transform 0.3s, visibility 0s 0.3s;
+
+        li {
+            /* Force Hardware Acceleration in WebKit */
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+        }
+
+        &.is-visible {
+            visibility: visible;
+            transform: scale(1);
+            transition: transform 0.3s, visibility 0s 0s;
+
+            li:nth-child(1) { /* list items animation */
+                animation: .2s slide-in;
+            }
+
+            li:nth-child(2) {
+                animation: .3s slide-in;
+            }
+
+            li:nth-child(3) {
+                animation: .4s slide-in;
+            }
+
+            li:nth-child(4) {
+                animation: .5s slide-in;
+            }
+
+            li:nth-child(5) {
+                animation: .6s slide-in;
+            }
+        }
+    }
+
+    li:last-child a {
+        border-bottom: none;
+    }
+
+    li a {
+        display: block;
+        padding: 1.6em;
+        border-bottom: 1px solid $c_dark;
+    }
+
+    @include bp($b_laptop) {
+        .menu--primary ul {
+            /* the navigation moves to the top */
+            position: absolute;
+            width: auto;
+            max-width: none;
+            bottom: auto;
+            top: 36px;
+            background: transparent;
+            visibility: visible;
+            box-shadow: none;
+            transform: scale(1);
+            transition: all 0s;
+        }
+
+        li {
+            display: inline-block;
+        }
+
+        li a {
+            opacity: 1;
+            padding: .4em;
+            margin-left: 1.6em;
+            border-bottom: none;
+
+            &:hover {
+                color: $c_green;
+            }
+        }
+
+        &.is-fixed ul {
+            /* when the user scrolls down, the navigation moves to the bottom right in Fixed position - as on touch devices */
+            position: fixed;
+            width: 90%;
+            max-width: 400px;
+            bottom: 20px;
+            top: auto;
+            background: $c_white;
+            visibility: hidden;
+            box-shadow: 0 0 10px rgba($c_dark, .4);
+            transform:scale(0);
+            
+            li {
+                display: block;
+            }
+
+            li a {
+                padding: 1.6em;
+                margin-left: 0;
+                border-bottom: 1px solid $c_dark;
+            }
+        }
+
+        ul.has-transitions {
+            /* this class is used to bring back transitions when the navigation moves at the bottom right */
+            transition: transform 0.3s, visibility 0s 0.3s;
+        }
+
+        ul.is-visible {
+            /* this class is used to bring back the navigation animation - as on touch devices */
+            visibility: visible;
+            transform: scale(1);
+            transition: transform 0.3s, visibility 0s 0s;
+        }
+
+        ul.is-hidden {
+            /* this class is used to animate the scale down the navigation when the user scrolls down with the navigation still open */
+            transform: scale(0);
+            transition: transform 0.3s;
+        }
+    }
+}
+
+.cd-nav-trigger {
+    position: fixed;
+    bottom: 20px;
+    right: 5%;
+    width: 44px;
+    height: 44px;
+    background: $c_dark;
+    border-radius: .25em;
+    box-shadow: 0 0 10px rgba($c_orange, .4);
+
+    /* image replacement */
+    overflow: hidden;
+    text-indent: 100%;
+    white-space: nowrap;
+
+    z-index: 2;
+
+    span {
+        /* the span element is used to create the menu icon */
+        position: absolute;
+        display: block;
+        width: 20px;
+        height: 2px;
+        background: $c_lime;
+        top: 50%;
+        margin-top: -1px;
+        left: 50%;
+        margin-left: -10px;
+        transition: background 0.3s;
+
+        &::before, &::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            background: inherit;
+            width: 100%;
+            height: 100%;
+
+            /* Force Hardware Acceleration in WebKit */
+            transform: translateZ(0);
+            backface-visibility: hidden;
+            transition: transform 0.3s, background 0s;
+        }
+
+        &::before {
+            top: -6px;
+            transform: rotate(0);
+        }
+
+        &::after {
+            bottom: -6px;
+            transform: rotate(0);
+        }
+    }
+
+    &.menu-is-open {
+        box-shadow: none;
+    }
+
+    &.menu-is-open span {
+        background: rgba($c_orange, 0);
+
+        &::before, &::after {
+            background: rgba($c_orange, 1);
+        }
+
+        &::before {
+            top: 0;
+            transform: rotate(135deg);
+        }
+
+        &::after {
+            bottom: 0;
+            transform: rotate(225deg);
+        }
+    }
+
+    @include bp($b_laptop) {
+        /* the the menu triger is hidden by default on desktop devices */
+        visibility: hidden;
+        transform: scale(0);
+        transition: transform 0.3s, visibility 0s 0.3s;
+
+        .is-fixed & {
+            visibility: visible;
+            transition: all 0s ease;
+            transform: scale(1);
+            animation: .3s bounce-in linear;
+        }
+    }
+}

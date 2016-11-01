@@ -39,6 +39,9 @@
 // transitions
 @import "helpers/mixins/cascade";
 
+// animations
+@import "helpers/animations/navigation";
+
 
 
 /**
@@ -65,3 +68,4 @@
  */
 @import "elements/site";
 @import "elements/hero";
+@import "elements/banner";

@@ -18,9 +18,12 @@ $c_black: #000;
 
 $c_white: #fff;
 
-$c_red: #f00;
 
-$c_green: #0f0;
+$c_dark: #231f20;
+$c_green: #a19f56;
+$c_lime: #95E43F;
+$c_orange: #F25D0E;
+
 
 
 /* =========================================
@@ -42,13 +45,14 @@ $c_green: #0f0;
 // state
 $ca_highlight: blueviolet;
 
-$ca_error: $c_red;
+$ca_error: $c_orange;
 
-$ca_success: $c_green;
+$ca_success: $c_lime;
 
 
 // elements
 $ca_bg_body: transparent;
+$ca_banner_bg: $c_dark;
 
 
 // typography
