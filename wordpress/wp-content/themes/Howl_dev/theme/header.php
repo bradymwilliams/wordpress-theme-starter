@@ -33,11 +33,14 @@
 
 <?php // common header content goes here ?>
     <header class="primary" role="banner">
-        <h1>Test</h1>
+        <div class="site__contain site__contain--relative">
+            <a href="<?=get_site_url()?>" class="banner__brand">
+                <img class="banner__image" src="<?=get_template_directory_uri(); ?>/assets/img/antlers--temp.png">
+            </a>
+            <div class="cd-nav">
+                <a href="#0" class="cd-nav-trigger">Menu<span></span></a>
+                <?php MOZ_Menu::nav_menu('primary'); ?>
+            </div>        
+        </div>
     </header>
-    <div class="cd-nav">
-        <a href="#0" class="cd-nav-trigger">Menu<span></span></a>
-        <?php MOZ_Menu::nav_menu( 'primary' ); ?>
-    </div>
-
-    <div style="height: 1600px"></div>
+    <?php // closes in footer.php ?>
