@@ -1,5 +1,5 @@
 /* =========================================
-		BP - Breakpoint Mixin
+        BP - Breakpoint Mixin
    ========================================= */
 
 
@@ -12,7 +12,7 @@
  * @param $context
  */
 @mixin bp($query, $context: all) {
-	@media #{$context} and #{$query} {
-		@content;
-	}
+    @media #{$context} and #{$query} {
+        @content;
+    }
 }

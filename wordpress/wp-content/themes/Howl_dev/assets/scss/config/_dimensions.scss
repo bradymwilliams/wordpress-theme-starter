@@ -11,8 +11,11 @@
 // examples:
 
 // containers
-$d_container_max: 540px;
+$d_body_min: 320px;
+$d_container_max: 1200px;
 
+// Elements
+$d_site_title_h: 150px;
 
 // gutters
 $d_default_gutter: 20px;

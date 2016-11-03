@@ -1,10 +1,89 @@
 /* =========================================
 		Site
    ========================================= */
+html {
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+}
+
+a {
+    color: $ca_anchor;
+}
+
+::selection {
+    background: $c_orange;
+    color: $c_white;
+}
 
 .site,
 .site__body {
-	margin: 0;
-	padding: 0;
-	height: 100%;
+    font-family: $f_title;
+    height: 100%;
+    margin: 0;
+    min-width: $d_body_min;
+    padding: 0;
+}
+
+.site__contain {
+    margin: 0 auto;
+    max-width: $d_container_max;
+
+    &--relative {
+        position: relative;
+    }
+}
+
+.site__contain--sidebar {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+    @include bp($b_laptop) {
+        flex-wrap: nowrap;
+    }
+
+    .main-content {
+        @include bp($b_laptop) {
+            flex-basis: 75%;
+        }
+    }
+
+    .sidebar-content {
+        @include bp($b_laptop) {
+            flex-basis: 25%;
+            margin-left: $d_default_gutter;
+        }
+    }
+}
+
+.main-content--home {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+
+    @include bp($b_tablet) {
+        // &:after {
+        //     content: "";
+        //     flex: auto;
+        // }
+    }
+}
+
+.post-contain--home {
+    background-color: $c_orange;
+    height: 200px;
+    margin-bottom: $d_default_gutter;
+
+    @include bp($b_tablet) {
+        flex-basis: 30%;
+        min-width: 280px;
+    }
+}
+
+
+// Break into single.scss
+.single__header {
+    color: $c_dark;
+    font-size: 2rem;
+    margin: 0 0 1rem;
 }

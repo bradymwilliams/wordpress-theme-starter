@@ -1,22 +1,31 @@
-header[role="banner"].primary {
-    // position: relative;
+// eslint:disable QualifyingElement
+header[role="banner"].primary { // eslint:disable QualifyingElement
+    position: relative;
     background-color: $ca_banner_bg;
     color: $c_white;
-    display: flex;
-    padding: 1rem;
+    // display: flex;
+    padding: $d_default_gutter;
+    box-shadow: .125rem .125rem .3125rem rgba(0,0,0,.4);
 }
 
-.menu--primary {
-    
+.banner__brand {
+    width: 35px;
+    display: block;
 }
 
+.banner__image {
+    max-width: 100%;
+}
+
+// TODO: BEM-ify all this
 .cd-nav {
+
     .menu--primary ul {
         /* mobile first */
         position: fixed;
         width: 90%;
         max-width: 400px;
-        right: 5%;
+        right: 0;
         bottom: 20px;
         border-right: .25em;
         box-shadow: 0 0 10px rgba($c_orange, .4);
@@ -31,7 +40,6 @@ header[role="banner"].primary {
         z-index: 1;
 
         /* Force Hardware Acceleration in WebKit */
-        -webkit-backface-visibility: hidden;
         backface-visibility: hidden;
 
         transform: scale(0);
@@ -88,11 +96,11 @@ header[role="banner"].primary {
             width: auto;
             max-width: none;
             bottom: auto;
-            top: 36px;
+            top: 50%;
             background: transparent;
             visibility: visible;
             box-shadow: none;
-            transform: scale(1);
+            transform: scale(1) translate(0, -50%);
             transition: all 0s;
         }
 
@@ -107,7 +115,7 @@ header[role="banner"].primary {
             border-bottom: none;
 
             &:hover {
-                color: $c_green;
+                color: $ca-nav-links-hover;
             }
         }
 
@@ -152,6 +160,21 @@ header[role="banner"].primary {
             transition: transform 0.3s;
         }
     }
+}
+
+.menu--primary {
+    
+    .menu__list {
+        font-family: $f_title;
+        font-weight: bold;
+    }
+
+    .menu__link {
+        text-decoration: none;
+        text-transform: uppercase;
+        color: $ca_nav_links;
+    }
+
 }
 
 .cd-nav-trigger {

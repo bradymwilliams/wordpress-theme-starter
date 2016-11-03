@@ -1,0 +1,26 @@
+.site-banner {
+    align-items: center;
+    background-color: $ca_site_banner;
+    display: flex;
+    flex-wrap: wrap;
+    font-family: $f_title;
+    justify-content: center;
+    margin-bottom: 2rem;
+    min-height: $d_site_title_h;
+    padding: $d_default_gutter;
+    // box-shadow: .125rem .125rem .3125rem rgba(0,0,0,.4);
+}
+
+.site-banner__header {
+    color: $c_dark;
+    font-size: 3rem;
+    margin: 0;
+    text-align: center;
+    text-shadow: -1px 1px 0 $c_white, -3px 3px $c_orange;
+}
+
+.site-banner__author {
+    color: $c_dark;
+    margin: 0;
+    text-align: center;
+}

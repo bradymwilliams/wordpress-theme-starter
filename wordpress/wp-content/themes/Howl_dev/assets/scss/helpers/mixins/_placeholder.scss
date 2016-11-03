@@ -1,6 +1,7 @@
 /* =========================================
-		Placeholder
+    Placeholder
    ========================================= */
+
 
 /**
  * Convenience mixin to
@@ -9,19 +10,28 @@
  * text
  *
  */
+
+// scss-lint:disable VendorPrefix
 @mixin placeholder {
-	&::-webkit-input-placeholder {
-		@content;
-	}
-	&:-moz-placeholder { /* Firefox 18- */
-		@content;
-		opacity: 1;
-	}
-	&::-moz-placeholder {  /* Firefox 19+ */
-		@content;
-		opacity: 1;
-	}
-	&:-ms-input-placeholder {
-		@content;
-	}
+    &::-webkit-input-placeholder {
+        @content;
+    }
+    // scss-lint:disable PseudoElement
+    &:-moz-placeholder {
+        /* Firefox 18- */
+        @content;
+        opacity: 1;
+    }
+    // scss-lint:enable PseudoElement
+    &::-moz-placeholder {
+        /* Firefox 19+ */
+        @content;
+        opacity: 1;
+    }
+
+    &:-ms-input-placeholder {
+        @content;
+    }
 }
+
+// scss-lint:enable VendorPrefix

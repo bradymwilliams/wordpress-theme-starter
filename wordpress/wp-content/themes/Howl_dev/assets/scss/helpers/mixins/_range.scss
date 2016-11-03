@@ -1,6 +1,7 @@
 /* =========================================
-		Range Input Styling
-   ========================================= */
+    Range Input Styling
+   =========================================*/
+
 
 /**
  * Convenience mixin to
@@ -9,26 +10,50 @@
  * track
  *
  */
-@mixin range-track() {
-	& { -webkit-appearance: none; @content }
-	&::-moz-range-track { @content }
-	&::-ms-track { @content }
 
-	&::-ms-fill-lower,
-	&::-ms-fill-upper {
-		background: transparent;
-	}
+// scss-lint:disable UnnecessaryParentReference
+@mixin range-track() {
+    & {
+        -webkit-appearance: none;
+        @content
+    }
+
+    &::-moz-range-track {
+        @content
+    }
+
+    &::-ms-track {
+        @content
+    }
+
+    &::-ms-fill-lower,
+    &::-ms-fill-upper {
+        background: transparent;
+    }
 }
+
 
 /**
- * Convenience mixin to
- * help style input
- * type range
- * "thumb" grip
- *
- */
+* Convenience mixin to
+* help style input
+* type range
+* "thumb" grip
+*
+*/
+
 @mixin range-thumb() {
-	&::-webkit-slider-thumb { -webkit-appearance: none; @content; }
-	&::-moz-range-thumb { @content; }
-	&::-ms-thumb { @content; }
+    &::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        @content;
+    }
+
+    &::-moz-range-thumb {
+        @content;
+    }
+
+    &::-ms-thumb {
+        @content;
+    }
 }
+
+// scss-lint:enable UnnecessaryParentReference

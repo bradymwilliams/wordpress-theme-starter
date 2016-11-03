@@ -21,8 +21,8 @@ $c_white: #fff;
 
 $c_dark: #231f20;
 $c_green: #a19f56;
-$c_lime: #95E43F;
-$c_orange: #F25D0E;
+$c_lime: #95e43f;
+$c_orange: #f25d0e;
 
 
 
@@ -43,7 +43,7 @@ $c_orange: #F25D0E;
 // examples:
 
 // state
-$ca_highlight: blueviolet;
+// $ca_highlight: #8a2be2;
 
 $ca_error: $c_orange;
 
@@ -52,7 +52,13 @@ $ca_success: $c_lime;
 
 // elements
 $ca_bg_body: transparent;
+$ca_anchor: $c_orange;
+
+// Top Banner
 $ca_banner_bg: $c_dark;
+$ca_nav_links: $c_white;
+$ca_nav_links-hover: $c_orange;
+$ca_site_banner: $c_green;
 
 
 // typography

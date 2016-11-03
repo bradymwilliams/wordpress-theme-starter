@@ -1,5 +1,5 @@
 /* =========================================
-		Functions -- ParseInt
+        Functions -- ParseInt
    ========================================= */
 
 /**
@@ -11,6 +11,6 @@
  * @returns int
  */
 @function parseInt($n) {
-	/* 2 */
-	@return $n / ($n * 0 + 1);
+    /* 2 */
+    @return $n / ($n * 0 + 1);
 }
