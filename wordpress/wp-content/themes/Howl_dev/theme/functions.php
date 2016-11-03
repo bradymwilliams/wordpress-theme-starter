@@ -52,9 +52,9 @@ if ( ! function_exists( 'theme_setup' ) ) {
 
 
         // Let wp know we want to use post thumbnails
-        /*
+        
         add_theme_support( 'post-thumbnails' );
-        */
+        set_post_thumbnail_size( 150, 150, true );
         
         // Add Custom Logo Support.
         /*
