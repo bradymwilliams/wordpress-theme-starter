@@ -1,8 +1,8 @@
 /* eslint
-		no-var: 0,
-	  no-multi-spaces: 0,
-	  no-mixed-spaces-and-tabs: 0,
-	  no-multiple-empty-lines: 0
+        no-var: 0,
+      no-multi-spaces: 0,
+      no-mixed-spaces-and-tabs: 0,
+      no-multiple-empty-lines: 0
 */
 var gulp  = require('gulp');
 var gutil = require('gulp-util');
@@ -27,24 +27,25 @@ gutil.log(gutil.colors.green('Starting to Gulp! Please wait...'));
  * Grouped
  */
 gulp.task('default', [
-	  'fonts:watch',
-	    'svg:watch',
-	 'sprite:watch',
-	 'images:watch',
-	'scripts:watch',
-	 'styles:watch',
-	  'theme:watch',
-	'browser:sync'
+      'fonts:watch',
+        'svg:watch',
+     'sprite:watch',
+     'images:watch',
+    'scripts:watch',
+     'styles:watch',
+   'scssLint:watch',
+      'theme:watch',
+     'browser:sync'
 ]);
 
 gulp.task('build', [
-	  'fonts:prod',
-	    'svg:prod',
-	 'sprite:prod',
-	 'images:prod',
-	'scripts:prod',
-	 'styles:prod',
-	  'theme:prod'
+      'fonts:prod',
+        'svg:prod',
+     'sprite:prod',
+     'images:prod',
+    'scripts:prod',
+     'styles:prod',
+      'theme:prod'
 ]);
 
 
@@ -98,14 +99,21 @@ gulp.task('scripts:dev',   ['scripts:clean'], lazyQuire(require, './gulp/core/re
 gulp.task('scripts:prod',  ['scripts:clean'], lazyQuire(require, './gulp/core/recipes/scripts/prod'));
 gulp.task('scripts:watch', ['scripts:clean'], lazyQuire(require, './gulp/core/recipes/scripts/watch'));
 
+/**
+ * SCSS Lint
+ */
+// TODO: Do we want use
+gulp.task('scssLint', [], lazyQuire(require, './gulp/core/recipes/scssLint')); // TODO: Move to SCSSLINT FOLDER
+gulp.task('scssLint:watch', [], lazyQuire(require, './gulp/core/recipes/scssLint/watch'));
+
 
 /**
  * Styles
  */
-gulp.task('styles:clean', [],               lazyQuire(require, './gulp/core/recipes/styles/clean'));
+gulp.task('styles:clean', [], lazyQuire(require, './gulp/core/recipes/styles/clean'));
 gulp.task('styles:dev',   ['styles:clean'], lazyQuire(require, './gulp/core/recipes/styles/dev'));
-gulp.task('styles:prod',  ['styles:clean'], lazyQuire(require, './gulp/core/recipes/styles/prod'));
-gulp.task('styles:watch', ['styles:dev'],   lazyQuire(require, './gulp/core/recipes/styles/watch'));
+gulp.task('styles:prod',  ['styles:clean', 'scssLint'], lazyQuire(require, './gulp/core/recipes/styles/prod'));
+gulp.task('styles:watch', ['styles:dev'], lazyQuire(require, './gulp/core/recipes/styles/watch'));
 
 
 /**
