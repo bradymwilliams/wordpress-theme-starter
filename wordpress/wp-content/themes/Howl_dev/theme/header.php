@@ -40,7 +40,7 @@
             <div class="cd-nav">
                 <a href="#0" class="cd-nav-trigger">Menu<span></span></a>
                 <?php MOZ_Menu::nav_menu('primary'); ?>
-            </div>        
+            </div>
         </div>
     </header>
     <?php // closes in footer.php ?>
