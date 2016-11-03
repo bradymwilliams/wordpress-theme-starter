@@ -16,7 +16,7 @@ const $ = require('jquery');
 import obj from './scripts/example';
 
 /* eslint-disable no-console */
-console.log(obj); /* eslint-enable no-console */
+console.log(obj);/* eslint-enable no-console */
 
 
 $(document).ready(() => {
