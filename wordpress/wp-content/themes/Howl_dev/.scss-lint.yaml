@@ -1,6 +1,5 @@
 # Default application configuration that all configurations inherit from.
 
-scss_files: "**/*.scss"
 plugin_directories: ['.scss-linters']
 
 # List of gem names to load custom linters from (make sure they are already
@@ -14,7 +13,7 @@ linters:
     space_after_bang: false
 
   BemDepth:
-    enabled: false
+    enabled: true
     max_elements: 1
 
   BorderZero:
@@ -28,7 +27,7 @@ linters:
     enabled: true
 
   Comment:
-    enabled: true
+    enabled: false
 
   DebugStatement:
     enabled: true
@@ -41,7 +40,7 @@ linters:
 
   ElsePlacement:
     enabled: true
-    style: same_line # or 'new_line'
+    style: new_line # or 'same_line'
 
   EmptyLineBetweenBlocks:
     enabled: true
@@ -79,8 +78,8 @@ linters:
   Indentation:
     enabled: true
     allow_non_nested_indentation: false
-    character: tab # or 'space'
-    width: 1
+    character: space # or 'tab'
+    width: 4
 
   LeadingZero:
     enabled: true
@@ -93,7 +92,7 @@ linters:
   NameFormat:
     enabled: false
     allow_leading_underscore: true
-    convention: snake_case # or 'camel_case', or 'hyphenated_lowercase', or a regex pattern
+    convention: hyphenated_lowercase # or snake_case, or 'camel_case', or 'hyphenated_lowercase', or a regex pattern
 
   NestingDepth:
     enabled: true
@@ -121,10 +120,10 @@ linters:
     properties: {}
 
   PropertySortOrder:
-    enabled: false
+    enabled: true
     ignore_unspecified: false
     min_properties: 2
-    separate_groups: false
+    separate_groups: true
 
   PropertySpelling:
     enabled: true
@@ -142,7 +141,7 @@ linters:
 
   SelectorFormat:
     enabled: true
-    convention: strict_BEM # or 'hyphenated_lowercase', or 'hyphenated_BEM', or 'snake_case', or 'camel_case', or a regex pattern
+    convention: hyphenated_BEM # or 'hyphenated_lowercase', or 'hyphenated_BEM', or 'snake_case', or 'camel_case', or a regex pattern
 
   Shorthand:
     enabled: true
@@ -160,7 +159,7 @@ linters:
 
   SpaceAfterPropertyColon:
     enabled: true
-    style: aligned # or 'no_space', or 'at_least_one_space', or 'one_space'
+    style: one_space # or aligned, or 'no_space', or 'at_least_one_space'
 
   SpaceAfterPropertyName:
     enabled: true
